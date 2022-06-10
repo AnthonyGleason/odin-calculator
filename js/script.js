@@ -36,4 +36,21 @@ let operate = function (operator,firstNum,secondNum){
     }
     return total;
 }
+let displayInput = function (userInput){
+    const calcDisplay=document.querySelector('.screen');
+    if (userInput.textContent=='clr')
+    {
+        calcDisplay.textContent="";
+    }else{
+        calcDisplay.textContent+=userInput.textContent;
+    }
+}
+
+const buttonContainer = document.querySelector('.button-container');
+const allButtons=buttonContainer.querySelectorAll('button');
+allButtons.forEach((button)=>{
+    button.addEventListener('click',()=>{
+        displayInput(button);
+    })
+})
 //send total as argument firstNum

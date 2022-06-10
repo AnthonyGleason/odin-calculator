@@ -11,7 +11,7 @@ body{
     height: 100vh;
 }
 
-.buttons-container{
+.button-container{
     display: flex;
     flex-direction: row;
 }
@@ -37,4 +37,7 @@ button{
 }
 .buttons-container{
     background-color: pink;
+}
+.display{
+    background-color: purple;
 }
