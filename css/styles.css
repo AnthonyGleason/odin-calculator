@@ -10,7 +10,10 @@ body{
     background-color: rgb(245, 219, 186);
     height: 100vh;
 }
-
+.screen,
+button{
+    font-size: 50px;
+}
 .button-container{
     display: flex;
     flex-direction: row;
@@ -22,22 +25,4 @@ body{
     justify-content: center;
     align-items: center;
     font-size: 30px;
-}
-
-/* debug styling */
-.calculator{
-    background-color: red;
-}
-.screen{
-    background-color: aqua;
-}
-.screen,
-button{
-    font-size: 50px;
-}
-.buttons-container{
-    background-color: pink;
-}
-.display{
-    background-color: purple;
 }
