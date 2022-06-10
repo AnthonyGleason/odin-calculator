@@ -51,8 +51,6 @@ let performCalculations = function (displayValue){
     let displayValueModified=displayValue
     let displayValueArray=[];
     let total =0;
-    let numa=0;
-    let numb=0;
     //seperate operators for array split
     displayValueModified=displayValueModified.replaceAll("+",",+,")
     displayValueModified=displayValueModified.replaceAll("-",",-,")
@@ -81,4 +79,3 @@ allButtons.forEach((button)=>{
         }
     })
 })
-//send total as argument firstNum
