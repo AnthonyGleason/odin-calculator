@@ -40,6 +40,8 @@ let displayInput = function (userInput){
     if (typeof userInput=="number"){
         calcDisplay.textContent="";
         calcDisplay.textContent+=(userInput);
+    }else if(userInput=="Error divide by zero!"){
+        calcDisplay.textContent=userInput;
     }else if (userInput.textContent=='clr'){
         calcDisplay.textContent="";
     }else{
@@ -59,6 +61,10 @@ let performCalculations = function (displayValue){
     displayValueArray=displayValueModified.split(',');
     for (let i=0;i<=displayValueArray.length;i++){
         if (displayValueArray[i]=='+'||displayValueArray[i]=='-'||displayValueArray[i]=='*'||displayValueArray[i]=='/'){
+            if (displayValueArray[i]=='/' && displayValue[i-1]==0 || displayValue[i+1]==0){
+                total="Error divide by zero!";
+                break;
+            }
             total=operate(displayValueArray[i],parseInt(displayValueArray[i-1]),parseInt(displayValueArray[i+1]));
             displayValueArray.splice(i+2,0,total);
             displayValueArray.splice(i-1,3);
