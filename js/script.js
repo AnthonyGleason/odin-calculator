@@ -42,6 +42,8 @@ let displayInput = function (userInput){
         calcDisplay.textContent+=(userInput);
     }else if(userInput=="Error divide by zero!"){
         calcDisplay.textContent=userInput;
+    }else if(userInput=="Error multiple decimals!"){
+        calcDisplay.textContent=userInput;
     }else if (userInput.textContent=='clr'){
         calcDisplay.textContent="";
     }else{
@@ -49,10 +51,24 @@ let displayInput = function (userInput){
     }
     return calcDisplay.textContent;
 }
+let multipleDecimals = function (num){
+    let counter=0;
+    num=num.toString();
+    for (let i=0;i<=num.length;i++){
+        if (num.charAt(i)=='.'){
+            counter++;
+            if (counter==2){
+                return true;
+            }
+        }
+    }
+    console.log(num);
+    return false;
+}
 let performCalculations = function (displayValue){
     let displayValueModified=displayValue
     let displayValueArray=[];
-    let total =0;
+    let total=0;
     //seperate operators for array split
     displayValueModified=displayValueModified.replaceAll("+",",+,")
     displayValueModified=displayValueModified.replaceAll("-",",-,")
@@ -64,8 +80,11 @@ let performCalculations = function (displayValue){
             if (displayValueArray[i]=='/' && displayValue[i-1]==0 || displayValue[i+1]==0){
                 total="Error divide by zero!";
                 break;
+            } else if (multipleDecimals(displayValueArray[i-1]) || multipleDecimals(displayValueArray[i+1])){
+                total="Error multiple decimals!";
+                break;
             }
-            total=operate(displayValueArray[i],parseInt(displayValueArray[i-1]),parseInt(displayValueArray[i+1]));
+            total=operate(displayValueArray[i],parseFloat(displayValueArray[i-1]),parseFloat(displayValueArray[i+1]));
             displayValueArray.splice(i+2,0,total);
             displayValueArray.splice(i-1,3);
             i--;
