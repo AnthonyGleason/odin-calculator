@@ -46,7 +46,9 @@ let displayInput = function (userInput){
         calcDisplay.textContent=userInput;
     }else if (userInput.textContent=='clr'){
         calcDisplay.textContent="";
-    }else{
+    }else if (userInput=="remove"){
+        calcDisplay.textContent=calcDisplay.textContent.substring(0,calcDisplay.textContent.length-1);
+    }else{s
         calcDisplay.textContent+=userInput.textContent;
     }
     return calcDisplay.textContent;
@@ -99,6 +101,8 @@ allButtons.forEach((button)=>{
     button.addEventListener('click',()=>{
         if (button.textContent=="="){
             performCalculations(displayValue);
+        }else if (button.textContent=="Backspace"){
+            displayValue=displayInput("remove");
         }else{
             displayValue=displayInput(button);
         }
