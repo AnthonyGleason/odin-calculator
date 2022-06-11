@@ -76,9 +76,29 @@ let performCalculations = function (displayValue){
     displayValueModified=displayValueModified.replaceAll("*",",*,")
     displayValueModified=displayValueModified.replaceAll("/",",/,")
     displayValueArray=displayValueModified.split(',');
+    displayValueArray=displayValueArray.filter((element)=>{
+        if (element==""){
+            return false;
+        }else{
+            return true;
+        }
+    });
     for (let i=0;i<=displayValueArray.length;i++){
         if (displayValueArray[i]=='+'||displayValueArray[i]=='-'||displayValueArray[i]=='*'||displayValueArray[i]=='/'){
-            if (displayValueArray[i]=='/' && displayValueArray[i-1]==0 || displayValueArray[i+1]==0){
+            if (displayValueArray[0]=='-'){
+                newValue=displayValueArray[0]+displayValueArray[1];
+                console.log(displayValueArray);
+                displayValueArray.splice(0,0,newValue);
+                displayValueArray.splice(1,2);
+                console.log(displayValueArray);
+                total=operate(displayValueArray[1],parseFloat(displayValueArray[0]),parseFloat(displayValueArray[i+2]));
+                continue;
+            }
+            if (displayValueArray[i+1]=='-'){
+                newValue=displayValueArray[i+1]+displayValueArray[i+2];
+                displayValueArray.splice(i+1,0,newValue);
+                displayValueArray.splice(i+2,2);
+            }else if (displayValueArray[i]=='/' && displayValueArray[i-1]==0 || displayValueArray[i+1]==0){
                 total="Error divide by zero!";
                 break;
             } else if (multipleDecimals(displayValueArray[i-1]) || multipleDecimals(displayValueArray[i+1])){
