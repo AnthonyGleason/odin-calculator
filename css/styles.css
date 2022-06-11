@@ -5,18 +5,87 @@
 }
 
 body{
+    background-color: beige;
     display: flex;
     flex-direction: column;
-    background-color: rgb(245, 219, 186);
     height: 100vh;
 }
-.screen,
 button{
-    font-size: 50px;
+    font-size: 30px;
+    width: 100%;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10%;
 }
 .button-container{
+    height: 70%;
+    width: 85%;
     display: flex;
     flex-direction: row;
+    gap: 10px;
+}
+.calc-container{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+.calculator{
+    background-color: rgba(0,0,255,0.7);
+    height: 900px;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    border-style: solid;
+    border-radius: 10%;
+}
+.container-left{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 10px;
+}
+.container-right{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    gap: 10px;
+}
+.buttonBackspace{
+    font-size: 20px;
+}
+.equal-bottom{
+    display: flex;
+    height: 50%;
+}
+.equal-top{
+    display: flex;
+    height: 50%;
+}
+.row{
+    display: flex;
+    flex-grow: 1;
+    gap: 10px;
+}
+.screen{
+    background-color: ghostwhite;
+    height: 15%;
+    width: 85%;
+    font-size: 50px;
+    border-style: solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.textbox{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    width: 90%;
 }
 .footer{
     display: flex;

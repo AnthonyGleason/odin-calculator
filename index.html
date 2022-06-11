@@ -6,28 +6,50 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <div class="calculator">
-            <div class="screen"></div>
-            <div class="button-container">
-                <!--add rows to the buttons below later so flex grow can be applied to fit calculator dimensions-->
-                <button type="button" class="buttonZero">0</button>
-                <button type="button" class="buttonOne">1</button>
-                <button type="button" class="buttonTwo">2</button>
-                <button type="button" class="buttonThree">3</button>
-                <button type="button" class="buttonFour">4</button>
-                <button type="button" class="buttonFive">5</button>
-                <button type="button" class="buttonSix">6</button>
-                <button type="button" class="buttonSeven">7</button>
-                <button type="button" class="buttonEight">8</button>
-                <button type="button" class="buttonNine">9</button>
-                <button type="button" class="buttonDecimal">.</button>
-                <button type="button" class="buttonAdd">+</button>
-                <button type="button" class="buttonSubtract">-</button>
-                <button type="button" class="buttonMultiply">*</button>
-                <button type="button" class="buttonDivide">/</button>
-                <button type="button" class="buttonEqual">=</button>
-                <button type="button" class="buttonBackspace">Backspace</button>
-                <button type="button" class="buttonClr">clr</button>
+        <div class="calc-container">
+            <div class="calculator">
+                <div class="screen">
+                    <div class="textbox"></div>
+                </div>
+                <div class="button-container">
+                    <div class="container-left">
+                        <div class="row">
+                            <button type="button" class="buttonDivide">/</button>
+                            <button type="button" class="buttonMultiply">*</button>
+                            <button type="button" class="buttonAdd">+</button>
+                            <button type="button" class="buttonSubtract">-</button>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="buttonSeven">7</button>
+                            <button type="button" class="buttonEight">8</button>
+                            <button type="button" class="buttonNine">9</button>
+                            
+                        </div>
+                        <div class="row">
+                            <button type="button" class="buttonFour">4</button>
+                            <button type="button" class="buttonFive">5</button>
+                            <button type="button" class="buttonSix">6</button>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="buttonOne">1</button>
+                            <button type="button" class="buttonTwo">2</button>
+                            <button type="button" class="buttonThree">3</button>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="buttonZero">0</button>
+                            <button type="button" class="buttonDecimal">.</button>
+                            <button type="button" class="buttonClr">clr</button>
+                        </div>
+                    </div>
+                    <div class="container-right">
+                        <div class="equal-top">
+                            <button type="button" class="buttonBackspace">Backspace</button>
+                        </div>
+                        <div class="equal-bottom">
+                            <button type="button" class="buttonEqual">=</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="footer">Odin Project Calculator!</div>

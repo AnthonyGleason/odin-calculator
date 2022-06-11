@@ -36,7 +36,7 @@ let operate = function (operator,firstNum,secondNum){
     return total;
 }
 let displayInput = function (userInput){
-    const calcDisplay=document.querySelector('.screen');
+    const calcDisplay=document.querySelector('.textbox');
     if (typeof userInput=="number"){
         calcDisplay.textContent="";
         calcDisplay.textContent+=(userInput);
