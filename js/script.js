@@ -64,7 +64,6 @@ let multipleDecimals = function (num){
             }
         }
     }
-    console.log(num);
     return false;
 }
 let performCalculations = function (displayValue){
@@ -79,7 +78,7 @@ let performCalculations = function (displayValue){
     displayValueArray=displayValueModified.split(',');
     for (let i=0;i<=displayValueArray.length;i++){
         if (displayValueArray[i]=='+'||displayValueArray[i]=='-'||displayValueArray[i]=='*'||displayValueArray[i]=='/'){
-            if (displayValueArray[i]=='/' && displayValue[i-1]==0 || displayValue[i+1]==0){
+            if (displayValueArray[i]=='/' && displayValueArray[i-1]==0 || displayValueArray[i+1]==0){
                 total="Error divide by zero!";
                 break;
             } else if (multipleDecimals(displayValueArray[i-1]) || multipleDecimals(displayValueArray[i+1])){
