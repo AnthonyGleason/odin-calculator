@@ -1,5 +1,6 @@
 let oneNumberBool=false;
 let calculatedOnce=false;
+let keyPressBool=false;
 let add = function (firstNum,secondNum){
     let total = 0;
     total=firstNum+secondNum;
@@ -53,6 +54,9 @@ let displayInput = function (userInput){
     }else if (oneNumberBool){
         calcDisplay.textContent=userInput;
         oneNumberBool=false;
+    }else if (keyPressBool){
+        keyPressBool=false;
+        calcDisplay.textContent+=userInput;
     }else{
         calcDisplay.textContent+=userInput.textContent;
     }
@@ -129,6 +133,18 @@ let performCalculations = function (displayValue){
 const buttonContainer = document.querySelector('.button-container');
 const allButtons=buttonContainer.querySelectorAll('button');
 let displayValue="";
+document.addEventListener('keypress',(e)=>{
+    keyPressBool=true;
+    console.log(e.key);
+    if (e.key=='='){
+        performCalculations(displayValue);
+    }else if (e.key=='\\'){
+        displayValue=displayInput("remove");
+    }else{
+    console.log(e.key);
+    displayValue=displayInput(e.key);
+    }
+});
 allButtons.forEach((button)=>{
     button.addEventListener('click',()=>{
         if (button.textContent=="="){
