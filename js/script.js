@@ -136,9 +136,9 @@ let displayValue="";
 document.addEventListener('keypress',(e)=>{
     keyPressBool=true;
     console.log(e.key);
-    if (e.key=='='){
+    if (e.key=='Enter'){
         performCalculations(displayValue);
-    }else if (e.key=='\\'){
+    }else if (e.key=='Delete'){
         displayValue=displayInput("remove");
     }else{
     console.log(e.key);
@@ -149,7 +149,7 @@ allButtons.forEach((button)=>{
     button.addEventListener('click',()=>{
         if (button.textContent=="="){
             performCalculations(displayValue);
-        }else if (button.textContent=="Backspace"){
+        }else if (button.textContent=="<--"){
             displayValue=displayInput("remove");
         }else{
             displayValue=displayInput(button);
