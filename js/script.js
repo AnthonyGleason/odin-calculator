@@ -1,3 +1,5 @@
+let oneNumberBool=false;
+let calculatedOnce=false;
 let add = function (firstNum,secondNum){
     let total = 0;
     total=firstNum+secondNum;
@@ -37,17 +39,20 @@ let operate = function (operator,firstNum,secondNum){
 }
 let displayInput = function (userInput){
     const calcDisplay=document.querySelector('.textbox');
+   // else if (calcDisplay.textContent==""||typeof userInput=="string"){
+   // calcDisplay.textContent=userInput;
     if (typeof userInput=="number"){
         calcDisplay.textContent="";
         calcDisplay.textContent+=(userInput);
-    }else if(userInput=="Error divide by zero!"){
-        calcDisplay.textContent=userInput;
-    }else if(userInput=="Error multiple decimals!"){
+    }else if(userInput=="Error multiple decimals!"||userInput=="Error two adjacent operators!"||userInput=="Error divide by zero!"){
         calcDisplay.textContent=userInput;
     }else if (userInput.textContent=='clr'){
         calcDisplay.textContent="";
     }else if (userInput=="remove"){
         calcDisplay.textContent=calcDisplay.textContent.substring(0,calcDisplay.textContent.length-1);
+    }else if (oneNumberBool){
+        calcDisplay.textContent=userInput;
+        oneNumberBool=false;
     }else{
         calcDisplay.textContent+=userInput.textContent;
     }
@@ -85,12 +90,14 @@ let performCalculations = function (displayValue){
     });
     for (let i=0;i<=displayValueArray.length;i++){
         if (displayValueArray[i]=='+'||displayValueArray[i]=='-'||displayValueArray[i]=='*'||displayValueArray[i]=='/'){
+            if (displayValueArray[i+1]=='+'||displayValueArray[i+1]=='*'||displayValueArray[i+1]=='/'){
+                total="Error two adjacent operators!"
+                break;
+            }
             if (displayValueArray[0]=='-'){
                 newValue=displayValueArray[0]+displayValueArray[1];
-                console.log(displayValueArray);
                 displayValueArray.splice(0,0,newValue);
                 displayValueArray.splice(1,2);
-                console.log(displayValueArray);
                 total=operate(displayValueArray[1],parseFloat(displayValueArray[0]),parseFloat(displayValueArray[i+2]));
                 continue;
             }
@@ -105,11 +112,17 @@ let performCalculations = function (displayValue){
                 total="Error multiple decimals!";
                 break;
             }
+            calculatedOnce=true;
             total=operate(displayValueArray[i],parseFloat(displayValueArray[i-1]),parseFloat(displayValueArray[i+1]));
             displayValueArray.splice(i+2,0,total);
             displayValueArray.splice(i-1,3);
             i--;
         }
+    }
+    if (displayValueArray.length==1 && calculatedOnce==false){
+        total=displayValueArray[0];
+        oneNumberBool=true;
+        calculatedOnce=true;
     }
     displayInput(total);
 }
