@@ -48,7 +48,7 @@ let displayInput = function (userInput){
         calcDisplay.textContent="";
     }else if (userInput=="remove"){
         calcDisplay.textContent=calcDisplay.textContent.substring(0,calcDisplay.textContent.length-1);
-    }else{s
+    }else{
         calcDisplay.textContent+=userInput.textContent;
     }
     return calcDisplay.textContent;
